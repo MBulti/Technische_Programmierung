@@ -29,7 +29,8 @@ int main(void)
     scanf("%f", &tankFillValue);
 
     float distance = currentOdoMeter - lastOdoMeter;
-    float usage = tankFillValue / (distance / 100);
+    //float usage = tankFillValue / (distance / 100);
+    float usage = tankFillValue / distance * 100;
     printf("\nAktueller Verbrauch ist %f L/100km", usage);
     return 0;
 }
