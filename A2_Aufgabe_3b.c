@@ -44,11 +44,11 @@ int main(void)
         secondDistance = distance / USMILE;                                 // KM / 1.6 = MILE
         secondUsage = secondDistance / (tankFillValue / USGALLON);          // MILE / GALLON
 
-        printf("\nZurueckgelegte Distanz in KM: %f", distance);
-        printf("\nZurueckgelegte Distanz in Meilen: %f", secondDistance);
+        printf("\nZurueckgelegte Distanz in KM: %.2f", distance);
+        printf("\nZurueckgelegte Distanz in Meilen: %.2f", secondDistance);
 
-        printf("\nAktueller Verbrauch in L/100 KM: %f", usage);
-        printf("\nAktueller Verbrauch in MPG: %f", secondUsage);
+        printf("\nAktueller Verbrauch in L/100 KM: %.2f", usage);
+        printf("\nAktueller Verbrauch in MPG: %.2f", secondUsage);
     }
     else if(unitOfMeasurement == 2) // US werte, dann "zweite" sind EU
     {
@@ -56,11 +56,11 @@ int main(void)
         secondDistance = distance * USMILE;                                 // MILE * 1.06 = KM
         secondUsage = (tankFillValue * USGALLON) / secondDistance * 100;    // (Gallon * 3.7) / KM * 100)
 
-        printf("\nZurueckgelegte Distanz in KM: %f", secondDistance);
-        printf("\nZurueckgelegte Distanz in Meilen: %f", distance);
+        printf("\nZurueckgelegte Distanz in KM: %.2f", secondDistance);
+        printf("\nZurueckgelegte Distanz in Meilen: %.2f", distance);
 
-        printf("\nAktueller Verbrauch in L/100 KM: %f", secondUsage);
-        printf("\nAktueller Verbrauch in MPG: %f", usage);
+        printf("\nAktueller Verbrauch in L/100 KM: %.2f", secondUsage);
+        printf("\nAktueller Verbrauch in MPG: %.2f", usage);
     }
     return 0;
 }
