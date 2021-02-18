@@ -27,7 +27,23 @@
     078 0x4e N
     079 0x4f O
     080 0x50 P
-    
+
     Mittels scanf(" %i %i"...); können Sie den Wertebereich abfragen und mit printf("
     ... %c", Code); das jeweilige Zeichen selbst ausgeben.
 */
+
+#include <stdio.h>
+
+int main(void)
+{
+    int start = 0, end = 0;
+    printf("** ASCII-Tabelle **\n");
+    printf("Bereich eingeben (START ENDE): ");
+    scanf("%i %i", &start, &end);
+    printf("Dez\tHex\tZeichen");
+    for (int i = start; i <= end; i++)
+    {
+        printf("\n%03i\t0x%x\t%c", i, i, i);
+    }
+    return 0;
+}
