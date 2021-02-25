@@ -13,8 +13,8 @@ wird.
 int main(void)
 {
     int i;
-    float fMittelwert = 0;
     int iArrayLaenge = 6;
+    float fMittelwert = 0;
     float fVarianz = 0;
     //float fWerte[]={5.2, 4.9, -1.0, 5.4, 5.0, 4.7};
     float fWerte[iArrayLaenge];
@@ -25,7 +25,6 @@ int main(void)
         printf("%i Messwert: ", i + 1);
         scanf("%f", &fWerte[i]);
     }
-    
     
     // Mittelwert
     for (i = 0; i < iArrayLaenge; i++)
