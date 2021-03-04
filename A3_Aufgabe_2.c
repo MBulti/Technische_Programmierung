@@ -36,11 +36,8 @@ float datStandard(float fWerte[], int iAnzahl, float fMittel);
 
 int main(void)
 {
-    int i;
     int iArrayLaenge = 0;
-    float fMittelwert = 0;
-    float fStandardabweichung = 0;
-    //float fWerte[]={5.2, 4.9, -1.0, 5.4, 5.0, 4.7};
+    float fMittelwert = 0, fStandardabweichung = 0;
     float fWerte[100];
 
     iArrayLaenge = datEingabe(fWerte);
@@ -58,7 +55,6 @@ int datEingabe(float fWerte[])
 {
     int iAnzahlEingebeneneWerte = 0;
     float tempSensor = 0;
-    // Einlesen
     printf("** Sensorwerte auswerten **\n");
     for (int i = 0; i < 100; i++)
     {
@@ -72,14 +68,12 @@ int datEingabe(float fWerte[])
             iAnzahlEingebeneneWerte++;
         }
     }
-    // hochgezählte Zahl nach eingabe
     return iAnzahlEingebeneneWerte;
 }
 //Rueckgabe: Mittelwert
 float datMittelwert(float fWerte[], int iAnzahl)
 {
     int fSumme = 0;
-    // Mittelwert
     for (int i = 0; i < iAnzahl; i++)
         fSumme += fWerte[i];
         
