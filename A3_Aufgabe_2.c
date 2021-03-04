@@ -56,13 +56,18 @@ int main(void)
 //Rueckgabe: Anzahl der eingegebenen Werte
 int datEingabe(float fWerte[])
 {
+    int count = 0;
     int i;
     // Einlesen
     for (i = 0; i < 6; i++)
     {
         printf("%i Messwert: ", i + 1);
         scanf("%f", &fWerte[i]);
+        count++;
     }
+
+    // hochgezählte Zahl nach eingabe
+    return count;
 }
 //Rueckgabe: Mittelwert
 float datMittelwert(float fWerte[], int iAnzahl)
