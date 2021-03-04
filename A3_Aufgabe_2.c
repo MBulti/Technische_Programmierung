@@ -37,45 +37,50 @@ float datStandard(float fWerte[], int iAnzahl, float fMittel);
 int main(void)
 {
     int i;
-    int iArrayLaenge = 6;
+    int iArrayLaenge = 0;
     float fMittelwert = 0;
-    float fVarianz = 0;
+    float fStandardabweichung = 0;
     //float fWerte[]={5.2, 4.9, -1.0, 5.4, 5.0, 4.7};
-    float fWerte[iArrayLaenge];
-
+    float fWerte[100];
 
     iArrayLaenge = datEingabe(fWerte);
     fMittelwert = datMittelwert(fWerte, iArrayLaenge);
-    fVarianz = datStandard(fWerte, iArrayLaenge, fMittelwert);
+    fStandardabweichung = datStandard(fWerte, iArrayLaenge, fMittelwert);
 
-    printf("\nMittelwert %f", fMittelwert);
-    printf("\nVarianz %f", fVarianz);
+    printf("\nAnzahl Sensorwerte: %i", iArrayLaenge);
+    printf("\nMittelwert: %.2f", fMittelwert);
+    printf("\nStandardabweichung: %.2f", fStandardabweichung);
     
     return 0;
 }
 //Rueckgabe: Anzahl der eingegebenen Werte
 int datEingabe(float fWerte[])
 {
-    int count = 0;
-    int i;
+    int iAnzahlEingebeneneWerte = 0;
+    float tempSensor = 0;
     // Einlesen
-    for (i = 0; i < 6; i++)
+    printf("** Sensorwerte auswerten **\n");
+    for (int i = 0; i < 100; i++)
     {
-        printf("%i Messwert: ", i + 1);
-        scanf("%f", &fWerte[i]);
-        count++;
+        printf("%.2i. Wert: ", i + 1);
+        scanf("%f", &tempSensor);
+        if(tempSensor <= 0)
+            break;
+        else
+        {
+            fWerte[i] = tempSensor;
+            iAnzahlEingebeneneWerte++;
+        }
     }
-
     // hochgezählte Zahl nach eingabe
-    return count;
+    return iAnzahlEingebeneneWerte;
 }
 //Rueckgabe: Mittelwert
 float datMittelwert(float fWerte[], int iAnzahl)
 {
-    int i;
     int fSumme = 0;
     // Mittelwert
-    for (i = 0; i < iAnzahl; i++)
+    for (int i = 0; i < iAnzahl; i++)
         fSumme += fWerte[i];
         
     return fSumme / iAnzahl;
@@ -83,11 +88,11 @@ float datMittelwert(float fWerte[], int iAnzahl)
 //Rueckgabe: Standardabweichung
 float datStandard(float fWerte[], int iAnzahl, float fMittel)
 {
-    int i;
-    int fVarianz = 0;
+    float fVarianzSumme = 0;
     // Varianz
-    for (i = 0; i < iAnzahl; i++)
-        fVarianz += pow((fWerte[i] - fMittel), 2);
+    for (int i = 0; i < iAnzahl; i++)
+        fVarianzSumme += pow((fWerte[i] - fMittel), 2);
 
-    return fVarianz / iAnzahl;
+    float fVarianz = fVarianzSumme / iAnzahl;
+    return sqrt(fVarianz);
 }
