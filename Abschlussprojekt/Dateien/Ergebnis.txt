@@ -1,0 +1,2 @@
+Mittelwert: 3.00
+Standartabweichung: 1.41
